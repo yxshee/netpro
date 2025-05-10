@@ -1,0 +1,37 @@
+! Layer 3 Switch Inter-VLAN Routing
+
+enable
+configure terminal
+
+# Create VLANs
+vlan 10
+ name LAN10
+vlan 20
+ name LAN20
+exit
+
+# Create SVIs
+interface vlan 10
+ description Default Gateway for 192.168.10.0/24
+ ip address 192.168.10.1 255.255.255.0
+ no shutdown
+exit
+interface vlan 20
+ description Default Gateway for 192.168.20.0/24
+ ip address 192.168.20.1 255.255.255.0
+ no shutdown
+exit
+
+# Access ports
+interface gi1/0/6
+ switchport mode access
+ switchport access vlan 10
+exit
+interface gi1/0/18
+ switchport mode access
+ switchport access vlan 20
+exit
+
+# Enable IP routing
+ip routing
+exit

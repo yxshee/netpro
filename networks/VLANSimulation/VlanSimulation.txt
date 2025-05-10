@@ -1,0 +1,22 @@
+! VLAN and Simulation Commands
+
+# Task 1: Switch and Router Packet Simulation (Packet Tracer)
+# (No CLI commands, use simulation mode to study behavior)
+
+# Task 2: VLAN Configuration on a Layer 2 Switch
+enable
+configure terminal
+vlan 10
+ name SALES
+vlan 20
+ name IT
+exit
+interface range fa0/1-2
+ switchport mode access
+ switchport access vlan 10
+interface range fa0/3-4
+ switchport mode access
+ switchport access vlan 20
+interface fa0/5
+ switchport mode trunk
+exit

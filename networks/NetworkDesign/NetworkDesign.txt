@@ -1,0 +1,18 @@
+# Network Design Case Study
+
+# Canberra Branch (10.XX.0.0/18)
+# Replace XX with last two digits of your student ID
+Network: 10.12.0.0/18
+Branch Router Config:
+interface gi0/0
+ ip address 10.12.0.1 255.255.192.0
+ no shutdown
+
+# Perth Branch (172.XX.0.0/16)
+Network: 172.15.0.0/16
+Branch Router Config:
+interface gi0/1
+ ip address 172.15.0.1 255.255.0.0
+ no shutdown
+
+# Ensure inter-site connectivity via VPN or routing protocols.
